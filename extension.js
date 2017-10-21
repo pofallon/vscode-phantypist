@@ -8,10 +8,6 @@ const async = require('async');
 // your extension is activated the very first time the command is executed
 function activate(context) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "phantypist" is now active!');
-
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
@@ -25,31 +21,38 @@ function activate(context) {
             var seenChar = false;
             var firstOfLine = "";
 
+            // Split the clipboad contents into an array of characters
             async.eachOfSeries(Array.from(content), (value, key, cb) => {
                 let selection = vscode.window.activeTextEditor.selection;
                 let startLine = selection.start.line;
                 let position = new vscode.Position(startLine, selection.start.character);
 
+                // If we're starting a new line, we haven't seen a non-whitespace char yet
                 if (position.character === 0) {
                     seenChar = false;
                 }
 
+                // If we haven't see a non-whitespace char yet, and this one isn't either
+                // just accumulate the character
                 if (!seenChar && value.match(/\s/)) {
                     firstOfLine += value;
                     cb();
                 } else {
+                    // If this is a non-whitespace character, we'll print it
+                    // (along with any accumulated initial whitespace)
                     seenChar = true;
                     if (firstOfLine) {
                         value = firstOfLine + value;
                         firstOfLine = "";
                     }
+                    // At some (random, configurable) time in the future, add the text to the editor
                     setTimeout(() => {
                         vscode.window.activeTextEditor.edit((editBuilder) => {
                             editBuilder.insert(position, value);
-                        }, {undoStopAfter: false, undoStopBefore: false}).then(() => { cb(); });
+                        }, {undoStopAfter: false, undoStopBefore: false})
+                        .then(() => { cb(); }, (error) => { cb(error); });
                     }, Math.random() * (config.maxWaitTime-config.minWaitTime)+config.minWaitTime);
                 }
-
             })
         });
     });
