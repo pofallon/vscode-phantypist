@@ -1,10 +1,10 @@
-# vscode-phantypist
+# Phantom Typist
 
-An extension for Visual Studio Code
+An extension for Visual Studio Code that will slowly paste text from the clipboard, as if someone is typing.
 
 ## Features
 
-Ctrl/Cmd+Shift+V will slowly paste text from the clipboard to the active editor, as if someone is typing.  The pause between each character is a random amount of time (between a configurable min and max).
+Ctrl/Cmd+Shift+V to paste.  The pause between characters is a random amount of time (between a configurable min and max).
 
 ## Extension Settings
 
@@ -16,6 +16,10 @@ This extension contributes the following settings:
 ## Known Issues
 
 None yet
+
+## Acknowledgements
+
+[Typewriter Icon](http://www.softicons.com/object-icons/vintage-icons-by-mike-demetriou/typewriter-icon), by Mike Demetriou
 
 ## Release Notes
 
