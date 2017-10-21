@@ -1,0 +1,59 @@
+{
+    "name": "phantypist",
+    "displayName": "Phantom Typist",
+    "description": "Slowly paste text from the clipboard into an editor window",
+    "version": "0.0.1",
+    "publisher": "paulofallon",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.phantypist"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Phantypist configuration",
+            "properties": {
+                "phantypist.minWaitTime": {
+                    "type": "integer",
+                    "default": 50,
+                    "description": "Minimum wait time between characters (in milliseconds)."
+                },
+                "phantypist.maxWaitTime": {
+                    "type": "integer",
+                    "default": 300,
+                    "description": "Maximum wait time between characters (in milliseconds)."
+                }
+            }
+        },
+        "keybindings": [
+            {
+                "command": "extension.phantypist",
+                "key": "ctrl+shift+v",
+                "mac": "cmd+shift+v",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.5.2",
+        "vscode": "^1.1.5",
+        "mocha": "^3.5.0",
+        "eslint": "^4.6.1",
+        "@types/node": "^7.0.0",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "async": "^2.5.0",
+        "copy-paste": "^1.3.0"
+    }
+}
