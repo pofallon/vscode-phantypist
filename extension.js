@@ -21,7 +21,7 @@ function activate(context) {
             var seenChar = false;
             var firstOfLine = "";
 
-            // Split the clipboad contents into an array of characters
+            // Split the clipboard contents into an array of characters
             async.eachOfSeries(Array.from(content), (value, key, cb) => {
                 let selection = vscode.window.activeTextEditor.selection;
                 let startLine = selection.start.line;

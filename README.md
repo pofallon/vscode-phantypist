@@ -4,7 +4,7 @@ An extension for Visual Studio Code that will slowly paste text from the clipboa
 
 ## Features
 
-Ctrl/Cmd+Shift+V to paste.  The pause between characters is a random amount of time (between a configurable min and max).
+Alt+Shift+V to paste.  The pause between characters is a random amount of time (between a configurable min and max).
 
 ## Extension Settings
 
@@ -31,3 +31,7 @@ None yet
 
 * Updated README
 * Added icon
+
+### 1.0.2
+
+* Changed keybinding

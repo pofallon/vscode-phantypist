@@ -2,7 +2,7 @@
     "name": "phantypist",
     "displayName": "Phantom Typist",
     "description": "Slowly paste text from the clipboard, as if someone is typing.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publisher": "paulofallon",
     "repository": {
         "type": "git",
@@ -39,8 +39,8 @@
         "keybindings": [
             {
                 "command": "extension.phantypist",
-                "key": "ctrl+shift+v",
-                "mac": "cmd+shift+v",
+                "key": "alt+shift+v",
+                "mac": "alt+shift+v",
                 "when": "editorTextFocus"
             }
         ]
