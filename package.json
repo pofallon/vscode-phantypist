@@ -1,8 +1,8 @@
 {
     "name": "phantypist",
     "displayName": "Phantom Typist",
-    "description": "Slowly paste text from the clipboard into an editor window",
-    "version": "0.0.1",
+    "description": "Slowly paste text from the clipboard into the active editor, as if someone is typing.",
+    "version": "1.0.0",
     "publisher": "paulofallon",
     "engines": {
         "vscode": "^1.17.0"
