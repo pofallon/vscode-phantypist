@@ -35,3 +35,7 @@ None yet
 ### 1.0.2
 
 * Changed keybinding
+
+### 1.0.3
+
+* Fixed "double-spacing"

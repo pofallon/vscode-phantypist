@@ -37,6 +37,10 @@ function activate(context) {
                 if (!seenChar && value.match(/\s/)) {
                     firstOfLine += value;
                     cb();
+                } else if (value.charCodeAt(0) === 13) {
+                    // Pasting both CR and LF causes "double spacing" between lines
+                    // So skip CR
+                    cb();
                 } else {
                     // If this is a non-whitespace character, we'll print it
                     // (along with any accumulated initial whitespace)

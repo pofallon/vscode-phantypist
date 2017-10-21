@@ -2,7 +2,7 @@
     "name": "phantypist",
     "displayName": "Phantom Typist",
     "description": "Slowly paste text from the clipboard, as if someone is typing.",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "publisher": "paulofallon",
     "repository": {
         "type": "git",
